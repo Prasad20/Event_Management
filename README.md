@@ -8,8 +8,8 @@
 
 Route::post('/event','event_controller@store');                 //Create events <br />
 
-Route::get('/event','event_controller@show');                   //Show Events created by user in case of admin all events will be shown
-<br />
+Route::get('/event','event_controller@show');                   //Show Events created by user in case of admin all events will be shown<br />
+
 Route::put('/event/update/{Events}','event_controller@update'); //Update Events <br />
 
 Route::delete('/event/delete/{Events}','event_controller@delete'); //Delete Events<br />
