@@ -47,7 +47,8 @@ Route::delete('/event/delete/{Events}','event_controller@delete'); //Delete Even
 
 Route::post('/user',function (Request $request)                     // Create/Register Users
 {
-    $validator = Validator::make($request->get(),[
+    $data = $request->all();
+    $validator = Validator::make($data,[
     'name' => 'required|min:3|max:50',
 
     'email' => 'required|email|unique:users,email',
@@ -63,8 +64,9 @@ Route::post('/user',function (Request $request)                     // Create/Re
     ]);
 
     if ($validator->fails()) {
-        return response()->json($validator->errors());
+        return response()->json($validator->errors(),404);
     }
+
 
 
     $content = json_decode($request->getContent(),true);

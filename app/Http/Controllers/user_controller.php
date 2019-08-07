@@ -70,6 +70,8 @@ class user_controller extends Controller
             if ($user->id != $users[0]['id']) {
                 return response()->json(['message' => "Auth Error"], 401);
             }
+
+            $user->admin = 0;
         }
 
         $user->update($request->all());
